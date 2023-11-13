@@ -1,7 +1,9 @@
 #pragma once
+#include "Event.h"
 
 #include <string>
 #include <stdio.h>
+#include <functional>
 #include <bx/bx.h>
 #include <bgfx/bgfx.h>
 #include <bgfx/platform.h>
@@ -26,6 +28,8 @@ struct WindowProps
 class Window
 {
 public:
+	using EventCallbackFn = std::function<void(Event&)>;
+
 	Window(const WindowProps& props = WindowProps());
 	~Window();
 
@@ -33,11 +37,24 @@ public:
 	void ShutDown();
 	void OnUpdate();
 
+	void SetEventCallback(const EventCallbackFn& callback) { m_Data.EventCallback = callback; }
+
 private:
+	struct WindowData
+	{
+		std::string Title;
+		unsigned int Width, Height;
+		bool VSync;
+
+		EventCallbackFn EventCallback;
+	} m_Data;
+
 	bgfx::UniformHandle u_time;
-	GLFWwindow* m_Window;
+	GLFWwindow* m_Window{ nullptr };
 
 	WindowProps m_Props;
 	uint32_t m_Debug;
+
+	
 };
 

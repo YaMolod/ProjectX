@@ -107,14 +107,14 @@ static bgfx::ShaderHandle loadShader(bx::FileReaderI* _reader, const char* _name
 	{
 	case bgfx::RendererType::Noop:
 	case bgfx::RendererType::Direct3D11:
-	case bgfx::RendererType::Direct3D12: shaderPath = "shaders/dx11/";  break;
+	case bgfx::RendererType::Direct3D12: shaderPath = "assets/shaders/dx11/";  break;
 	case bgfx::RendererType::Agc:
-	case bgfx::RendererType::Gnm:        shaderPath = "shaders/pssl/";  break;
-	case bgfx::RendererType::Metal:      shaderPath = "shaders/metal/"; break;
-	case bgfx::RendererType::Nvn:        shaderPath = "shaders/nvn/";   break;
-	case bgfx::RendererType::OpenGL:     shaderPath = "shaders/glsl/";  break;
-	case bgfx::RendererType::OpenGLES:   shaderPath = "shaders/essl/";  break;
-	case bgfx::RendererType::Vulkan:     shaderPath = "shaders/spirv/"; break;
+	case bgfx::RendererType::Gnm:        shaderPath = "assets/shaders/pssl/";  break;
+	case bgfx::RendererType::Metal:      shaderPath = "assets/shaders/metal/"; break;
+	case bgfx::RendererType::Nvn:        shaderPath = "assets/shaders/nvn/";   break;
+	case bgfx::RendererType::OpenGL:     shaderPath = "assets/shaders/glsl/";  break;
+	case bgfx::RendererType::OpenGLES:   shaderPath = "assets/shaders/essl/";  break;
+	case bgfx::RendererType::Vulkan:     shaderPath = "assets/shaders/spirv/"; break;
 
 	case bgfx::RendererType::Count:
 		BX_ASSERT(false, "You should not be here!");

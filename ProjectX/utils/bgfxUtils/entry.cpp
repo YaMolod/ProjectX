@@ -987,11 +987,15 @@ restart:
 
 	bx::FileReaderI* getFileReader()
 	{
+		if (!s_fileReader)
+			s_fileReader = BX_NEW(g_allocator, FileReader);
 		return s_fileReader;
 	}
 
 	bx::FileWriterI* getFileWriter()
 	{
+		if (!s_fileWriter)
+			s_fileWriter = BX_NEW(g_allocator, FileWriter);
 		return s_fileWriter;
 	}
 
