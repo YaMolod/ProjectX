@@ -22,18 +22,6 @@ namespace bx { struct FileReaderI; struct FileWriterI; struct AllocatorI; }
 #	define ENTRY_CONFIG_IMPLEMENT_MAIN 0
 #endif // ENTRY_CONFIG_IMPLEMENT_MAIN
 
-#if ENTRY_CONFIG_IMPLEMENT_MAIN
-#define ENTRY_IMPLEMENT_MAIN(_app, ...)                 \
-	int _main_(int _argc, char** _argv)                 \
-	{                                                   \
-			_app app(__VA_ARGS__);                      \
-			return entry::runApp(&app, _argc, _argv);   \
-	}
-#else
-#define ENTRY_IMPLEMENT_MAIN(_app, ...) \
-	_app s_ ## _app ## App(__VA_ARGS__)
-#endif // ENTRY_CONFIG_IMPLEMENT_MAIN
-
 ///
 #define ENTRY_HANDLE(_name)                                                \
 	struct _name { uint16_t idx; };                                        \

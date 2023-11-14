@@ -54,7 +54,5 @@ private:
 
 	WindowProps m_Props;
 	uint32_t m_Debug;
-
-	
 };
 

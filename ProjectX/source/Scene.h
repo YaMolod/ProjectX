@@ -1,5 +1,4 @@
 #pragma once
-#include <bgfxUtils/entry.h>
 #include <bgfxUtils/bgfxUtils.h>
 
 #include <GLFW/glfw3.h>

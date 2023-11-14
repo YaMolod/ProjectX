@@ -1,4 +1,9 @@
 #include "Application.h"
+#include <Mmsystem.h>
+#include <mciapi.h>
+
+#include <thread>
+#pragma comment(lib, "Winmm.lib")
 
 Application::Application()
 {
@@ -14,6 +19,8 @@ void Application::Init()
 
 void Application::Run()
 {
+	mciSendString(L"open \"assets/audio/free bird.mp3\" type mpegvideo alias mp3", NULL, 0, NULL);
+	mciSendString(L"play mp3 repeat", NULL, 0, NULL);
 	while (m_Running)
 	{
 		m_Scene->OnUpdate();
@@ -24,10 +31,10 @@ void Application::Run()
 void Application::OnEvent(Event& event)
 {
 	EventDispatcher dispatcher(event);
-	dispatcher.Dispatch<WindowCloseEvent>([&](WindowCloseEvent& event) { return OnWindowClose(event); });
+	dispatcher.Dispatch(EventType::WindowClose, [&](Event& event) { return OnWindowClose(event); });
 }
 
-bool Application::OnWindowClose(WindowCloseEvent& event)
+bool Application::OnWindowClose(Event& event)
 {
 	m_Running = false;
 	return true;

@@ -24,9 +24,10 @@ void Window::Init()
 	init.platformData.nwh = glfwGetWin32Window(m_Window);
 	init.resolution.width  = m_Props.Width;
 	init.resolution.height = m_Props.Height;
-	bgfx::init(init);
 
-	m_Debug  = BGFX_DEBUG_NONE;
+	m_Debug  = BGFX_DEBUG_TEXT;
+	bgfx::init(init);
+	bgfx::setDebug(m_Debug);
 
 	const bgfx::ViewId kClearView = 0;
 	bgfx::setViewClear(0
