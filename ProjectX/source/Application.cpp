@@ -2,7 +2,6 @@
 #include <Mmsystem.h>
 #include <mciapi.h>
 
-#include <thread>
 #pragma comment(lib, "Winmm.lib")
 
 Application::Application()

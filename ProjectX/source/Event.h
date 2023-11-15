@@ -26,7 +26,6 @@ namespace
 		{EventType::MouseMoved, "MouseMoved"},
 		{EventType::MouseScrolled, "MouseScrolled"}
 	};
-
 }
 
 class Event

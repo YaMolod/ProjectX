@@ -13,12 +13,11 @@ Window::~Window()
 
 void Window::Init()
 {
-	int success = glfwInit();
+	glfwInit();
 	glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
 	m_Window = glfwCreateWindow(static_cast<int>(m_Props.Width), static_cast<int>(m_Props.Height), m_Props.Title.c_str(), nullptr, nullptr);
 	glfwSetWindowUserPointer(m_Window, &m_Data);
 
-	bgfx::renderFrame();
 	bgfx::Init init;
 	init.type = bgfx::RendererType::OpenGL;
 	init.platformData.nwh = glfwGetWin32Window(m_Window);
